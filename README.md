@@ -3,54 +3,54 @@
 General:
 --------
 - Что такое `полиморфизм`?
-Полиморфизм - возможность объектов с одинаковой спецификацией иметь различную реализацию.<br> 
-Например:<br>
-```swift
-protocol Speaking {
-  typealias Voice
-  func speak () -> Voice
-}
-
-class Dog : Speaking {
-  func speak() -> String {
-    return "BARK!"
+  Полиморфизм - возможность объектов с одинаковой спецификацией иметь различную реализацию.<br> 
+  Например:<br>
+  ```swift
+  protocol Speaking {
+    typealias Voice
+    func speak () -> Voice
   }
-}
 
-class Cat : Speaking {
-  func speak() -> [String] {
-    return ["Meooww", "Meooww"]
+  class Dog : Speaking {
+    func speak() -> String {
+      return "BARK!"
+    }
   }
-}
-```
+
+  class Cat : Speaking {
+    func speak() -> [String] {
+      return ["Meooww", "Meooww"]
+    }
+  }
+  ```
 - ```Что такое *инкапсуляция? Что такое *нарушение инкапсуляции?```
-Инкапсуляция - это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали 
-реализации от пользователя.<br>
-Например:<br>
-```swift
-class Storage {
-    private let key: Data
-    init(withKey key: String) {
-        self.key = transformToData(key)
-    }
-    private func transformToData(_ key: String) -> Data {
-       return key.data(using: .utf8)!
-    }
-}
-```
-Нарушение инкапсуляции:
-```swift
-class Storage {
-    let key: Data // Ключ не приватный, его можно менять
-    init(withKey key: String) {
-        self.key = transformToData(key)
-    }
-    // Реализация метода не должна быть вынесена в публичный интерфейс
-    func transformToData(_ key: String) -> Data {
-       return key.data(using: .utf8)!
-    }
-}
-```
+  Инкапсуляция - это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали 
+  реализации от пользователя.<br>
+  Например:<br>
+  ```swift
+  class Storage {
+      private let key: Data
+      init(withKey key: String) {
+          self.key = transformToData(key)
+      }
+      private func transformToData(_ key: String) -> Data {
+         return key.data(using: .utf8)!
+      }
+  }
+  ```
+  Нарушение инкапсуляции:
+  ```swift
+  class Storage {
+      let key: Data // Ключ не приватный, его можно менять
+      init(withKey key: String) {
+          self.key = transformToData(key)
+      }
+      // Реализация метода не должна быть вынесена в публичный интерфейс
+      func transformToData(_ key: String) -> Data {
+         return key.data(using: .utf8)!
+      }
+  }
+  ```
 - Чем `абстрактный` класс отличается от `интерфейса`?
   **Интерфейс** - лишь описывает методы, без их конкретной реализации.<br>
   **Абстрактный класс** - имеет набор методов, которые необходимо переопределить в наследниках.<br>
