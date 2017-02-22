@@ -3,33 +3,54 @@
 General:
 --------
 - Что такое `полиморфизм`?
-Возможность объектов с одинаковой спецификацией иметь различную реализацию.<br> 
+Полиморфизм - возможность объектов с одинаковой спецификацией иметь различную реализацию.<br> 
 Например:<br>
 ```swift
-class Figure {
-    func drawFigure() {}
-}
-class Rectangle: Figure {
-    override func drawFigure() {
-        print("Draw rectangle")
-    }
-}
-class Triangle: Figure {
-    override func drawFigure() {
-        print("Draw triangle")
-    }
+protocol Speaking {
+  typealias Voice
+  func speak () -> Voice
 }
 
-func draw(_ figure: Figure) {
-    figure.drawFigure()
+class Dog : Speaking {
+  func speak() -> String {
+    return "BARK!"
+  }
 }
 
-draw(Rectangle())
-draw(Triangle())
+class Cat : Speaking {
+  func speak() -> [String] {
+    return ["Meooww", "Meooww"]
+  }
+}
 ```
-
 - ```Что такое *инкапсуляция? Что такое *нарушение инкапсуляции?```
-
+Инкапсуляция - это свойство системы, позволяющее объединить данные и методы, работающие с ними, в классе и скрыть детали 
+реализации от пользователя.<br>
+Например:<br>
+```swift
+class Storage {
+    private let key: Data
+    init(withKey key: String) {
+        self.key = transformToData(key)
+    }
+    private func transformToData(_ key: String) -> Data {
+       return key.data(using: .utf8)!
+    }
+}
+```
+Нарушение инкапсуляции:
+```swift
+class Storage {
+    let key: Data // Ключ не приватный, его можно менять
+    init(withKey key: String) {
+        self.key = transformToData(key)
+    }
+    // Реализация метода не должна быть вынесена в публичный интерфейс
+    func transformToData(_ key: String) -> Data {
+       return key.data(using: .utf8)!
+    }
+}
+```
 - Чем `абстрактный` класс отличается от `интерфейса`?
 - Расскажите о `паттерне MVC`. Чем отличается `пассивная` модель от `активной`?
 - Реализация `синглтона (Singleton)` в `ARC` и в `non-ARC`?
