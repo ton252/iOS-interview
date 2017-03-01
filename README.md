@@ -71,8 +71,12 @@ General:
   *Модель (Model) - предоставляет данные и реагирует на команды контроллера, изменяя своё состояние
   *Представление (View) - отвечает за отображение данных модели пользователю, реагируя на изменения модели
   *Контроллер (Controller) - интерпретирует действия пользователя, оповещая модель о необходимости изменений
-  ![ios-architecture-and-mvc-15-728](https://cloud.githubusercontent.com/assets/13065321/23462373/9dc73b8e-fe9e-11e6-8975-b0a07f8d5558.jpg)
-
+  
+  <p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/13065321/23462373/9dc73b8e-fe9e-11e6-8975-b0a07f8d5558.jpg"/>
+  </p>
+  
+  
 - Реализация `синглтона (Singleton)` в `ARC` и в `non-ARC`?
 - Какие еще `паттерны` знаете?
 - Паттерны `порождающие, создания объектов (Creational): Singleton, Abstarct Factory`?
