@@ -159,7 +159,10 @@ Networking:
 
 Multithreading:
 ---------------
-- Что такое `deadlock`?
+# Что такое `deadlock`?
+
+Deadlocking occurs when a first block stops and waits for a second to complete but the second can't proceed because it needs a resource that the first is holding.
+**Взаимная блокировка(deadlock)** – это такое сотояние системы, в котором один поток блокируется и ожидает завершения другого потока, но второй поток не может выполниться потому что ему нужны ресурсы, которые блокирует первый поток.
 - Что такое `livelock`?
 - Что такое `семафор (semafor)`?
 - Что такое `мьютекс (mutex)`?
